@@ -4,7 +4,6 @@ const articleCreator = article => {
 
 	const h2 = document.createElement("h2");
 	h2.textContent = article.title;
-	div.appendChild(h2);
 
 	const articleDate = document.createElement("p");
 	articleDate.textContent = article.date;
@@ -26,11 +25,11 @@ const articleCreator = article => {
 		div.classList.toggle("article-open");
 	});
 
-	div.appendChild(articleDate);
-	div.appendChild(p1);
-	div.appendChild(p2);
-	div.appendChild(p3);
-	div.appendChild(expand);
+	const elements = [h2, articleDate, p1, p2, p3, expand];
+
+	for (const element of elements) {
+		div.appendChild(element);
+	}
 
 	return div;
 };
